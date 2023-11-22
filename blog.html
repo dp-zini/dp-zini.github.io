@@ -67,28 +67,28 @@
     <p class="post-date">Date Here</p>
     <p class="post-content">Post content here...</p>
     <div class="media-container">
-      <!-- Media will be dynamically inserted here -->
+      <!-- add ur media here -->
     </div>
   </article>
 </template>
 
 <div class="blog-container">
-  <!-- Posts will be inserted here by the JavaScript below -->
+  <!-- add blogs here with js -->
 </div>
 
 <script>
-  // Sample array of blog posts.
+  // post array
   const posts = [
     {
       title: "welcome to my blog",
       date: "November 22, 2023",
       content: "welcome to the blog i will never update. woo.",
-      media: "", // No media for this post
+      media: "", // put directory of media here
     },
-    // More posts can be added here
+    // add posts here
   ];
 
-  // Function to create and return a blog post element
+  // create and return post element
   function createPostElement(postData) {
     const template = document.getElementById('blog-post-template').content.cloneNode(true);
     
@@ -109,7 +109,7 @@
     return template;
   }
 
-  // Function to render all blog posts.
+  // render posts.
   function renderPosts() {
     const container = document.querySelector('.blog-container');
     posts.forEach(post => {
@@ -118,7 +118,7 @@
     });
   }
 
-  // Call renderPosts on page load.
+  // call renderPosts on page load
   window.onload = renderPosts;
 </script>
 

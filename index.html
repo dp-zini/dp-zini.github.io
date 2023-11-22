@@ -13,7 +13,7 @@
     text-align: center;
     margin: 0;
     padding: 0;
-    text-transform: lowercase; /* Make all text lowercase */
+    text-transform: lowercase; 
   }
   .button {
     display: inline-block;
@@ -56,18 +56,18 @@
 
 <script>
   function updateClock() {
-    var now = new Date(); // Get the current time
-    var hours = now.getUTCHours() - 5; // Convert to EST (Eastern Standard Time is UTC-5)
+    var now = new Date(); // get time
+    var hours = now.getUTCHours() - 5; // UTC-5
     var minutes = now.getUTCMinutes();
     var seconds = now.getUTCSeconds();
-    // Format the time to display two digits
+    // format
     hours = ("0" + hours).slice(-2);
     minutes = ("0" + minutes).slice(-2);
     seconds = ("0" + seconds).slice(-2);
-    // Update the clock element
+    // update
     document.getElementById('clock').textContent = hours + ":" + minutes + ":" + seconds;
   }
-  setInterval(updateClock, 1000); // Update the clock every second
+  setInterval(updateClock, 1000); // update more
 </script>
 
 </body>
