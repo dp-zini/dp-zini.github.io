@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>portfolio</title>
+<style>
+  body {
+    background-color: black;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: black;
+    padding: 5px 0; /* Adjusted padding to match the button height */
+    z-index: 10;
+    text-align: center;
+  }
+  .portfolio-container {
+    padding-top: 50px; /* Adjusted top padding to ensure content is not hidden by the header */
+    padding-bottom: 20px;
+    max-width: 750px;
+    margin: auto;
+  }
+  .project {
+    background-color: #333;
+    padding: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .project-title {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+  .project-description {
+    font-size: 1em;
+    margin-bottom: 20px;
+  }
+  .project-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  .project-link {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  .project-link:hover {
+    background: #555;
+  }
+  .button {
+    display: inline-block;
+    margin: 0;
+    padding: 10px 20px;
+    background: gray;
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    transition: background-color 0.3s;
+  }
+  .button:hover {
+    background: #333;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="index.html" class="button">back to home</a>
+</div>
+
+<div class="portfolio-container">
+  <h1>portfolio</h1>
+  <!-- Project 1 -->
+  <div class="project">
+    <div class="project-title">pyrsa</div>
+    <div class="project-description">
+      <p>this project was a fun challenge in cryptography and ui design.</p>
+	  <p>a simple and user friendly RSA encryption and decryption app.</p>
+    </div>
+    <div class="project-links">
+      <a href="https://github.com/dp-zini/PyRSA" class="project-link" target="_blank">GitHub</a>
+    </div>
+  </div>
+  <!-- Additional placeholder projects can be added here -->
+</div>
+
+</body>
+</html>

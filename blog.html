@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog</title>
+<style>
+  body {
+    background-color: black;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    text-transform: lowercase;
+  }
+  .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: black;
+    padding: 5px 0;
+    z-index: 10;
+    text-align: center;
+  }
+  .blog-container {
+    padding-top: 60px;
+    padding-bottom: 20px;
+  }
+  .post {
+    margin-bottom: 50px;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .media-container img {
+    width: 100%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 20px; /* Add space above the image */
+  }
+  .button {
+    display: inline-block;
+    margin: 0;
+    padding: 10px 20px;
+    background: gray;
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    transition: background-color 0.3s;
+  }
+  .button:hover {
+    background: #333;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="index.html" class="button">back to home</a>
+</div>
+
+<template id="blog-post-template">
+  <article class="post">
+    <h2 class="post-title">Post Title Here</h2>
+    <p class="post-date">Date Here</p>
+    <p class="post-content">Post content here...</p>
+    <div class="media-container">
+      <!-- Media will be dynamically inserted here -->
+    </div>
+  </article>
+</template>
+
+<div class="blog-container">
+  <!-- Posts will be inserted here by the JavaScript below -->
+</div>
+
+<script>
+  // Sample array of blog posts.
+  const posts = [
+    {
+      title: "welcome to my blog",
+      date: "November 22, 2023",
+      content: "welcome to the blog i will never update. woo.",
+      media: "", // No media for this post
+    },
+    // More posts can be added here
+  ];
+
+  // Function to create and return a blog post element
+  function createPostElement(postData) {
+    const template = document.getElementById('blog-post-template').content.cloneNode(true);
+    
+    template.querySelector('.post-title').textContent = postData.title;
+    template.querySelector('.post-date').textContent = postData.date;
+    template.querySelector('.post-content').textContent = postData.content;
+    
+    const mediaContainer = template.querySelector('.media-container');
+    if (postData.media) {
+      const img = document.createElement('img');
+      img.src = postData.media;
+      img.alt = 'Media for ' + postData.title;
+      mediaContainer.appendChild(img);
+    } else {
+      mediaContainer.remove();
+    }
+
+    return template;
+  }
+
+  // Function to render all blog posts.
+  function renderPosts() {
+    const container = document.querySelector('.blog-container');
+    posts.forEach(post => {
+      const postElement = createPostElement(post);
+      container.appendChild(postElement);
+    });
+  }
+
+  // Call renderPosts on page load.
+  window.onload = renderPosts;
+</script>
+
+</body>
+</html>
