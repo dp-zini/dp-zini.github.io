@@ -80,52 +80,60 @@
   // post array
   const posts = [
     {
-      title: "updated the domain",
-      date: "November 23, 2023",
-      content: "finally decided to buy marouf.dev cuz .xyz sucks.",
+      title: "hitman internet blocking, automated!",
+      date: "november 23, 2023 @ 3:52",
+      content: "python script to automatically generates ahk and bat scripts",
       media: "", // put directory of media here
+	  downloadLink: "media/scripts/hitman-gen.py"
     },	
-    {
-      title: "welcome to my blog",
-      date: "November 22, 2023",
-      content: "welcome to the blog i will never update. woo.",
-      media: "", // put directory of media here
-    },
     // add posts here
   ];
 
-  // create and return post element
-  function createPostElement(postData) {
-    const template = document.getElementById('blog-post-template').content.cloneNode(true);
-    
-    template.querySelector('.post-title').textContent = postData.title;
-    template.querySelector('.post-date').textContent = postData.date;
-    template.querySelector('.post-content').textContent = postData.content;
-    
-    const mediaContainer = template.querySelector('.media-container');
-    if (postData.media) {
-      const img = document.createElement('img');
-      img.src = postData.media;
-      img.alt = 'Media for ' + postData.title;
-      mediaContainer.appendChild(img);
-    } else {
-      mediaContainer.remove();
-    }
 
-    return template;
-  }
+	// create and return post element
+	function createPostElement(postData) {
+	  const template = document.getElementById('blog-post-template').content.cloneNode(true);
+	  
+	  template.querySelector('.post-title').textContent = postData.title;
+	  template.querySelector('.post-date').textContent = postData.date;
+	  template.querySelector('.post-content').textContent = postData.content;
+	  
+	  // check if theres a downloadlink
+	if (postData.downloadLink) {
+	  const downloadLink = document.createElement('a');
+	  downloadLink.href = postData.downloadLink;
+	  downloadLink.textContent = 'download the script here';
+	  downloadLink.setAttribute('download', '');
+	  downloadLink.style.textDecoration = 'underline'; // underline
+	  downloadLink.style.color = '#FFD700'; // color it
+	  template.querySelector('.post-content').appendChild(document.createElement('br')); // new line
+	  template.querySelector('.post-content').appendChild(downloadLink);
+	}
+	  
+	  const mediaContainer = template.querySelector('.media-container');
+	  if (postData.media) {
+		const img = document.createElement('img');
+		img.src = postData.media;
+		img.alt = 'Media for ' + postData.title;
+		mediaContainer.appendChild(img);
+	  } else {
+		mediaContainer.remove();
+	  }
+	  
+	  return template;
+	}
 
-  // render posts.
-  function renderPosts() {
-    const container = document.querySelector('.blog-container');
-    posts.forEach(post => {
-      const postElement = createPostElement(post);
-      container.appendChild(postElement);
-    });
-  }
+	// render posts.
+	function renderPosts() {
+	  const container = document.querySelector('.blog-container');
+	  posts.forEach(post => {
+		const postElement = createPostElement(post);
+		container.appendChild(postElement);
+	  });
+	}
 
-  // call renderPosts on page load
-  window.onload = renderPosts;
+	// call renderPosts on page load
+	window.onload = renderPosts;
 </script>
 
 </body>
