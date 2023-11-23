@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,18 +55,19 @@
 
 <script>
   function updateClock() {
-    var now = new Date(); // get time
-    var hours = now.getUTCHours() - 5; // UTC-5
+    var now = new Date(); 
+    var hours = now.getUTCHours() - 5; 
+    if (hours < 0) { 
+      hours += 24; 
+    }
     var minutes = now.getUTCMinutes();
     var seconds = now.getUTCSeconds();
-    // format
     hours = ("0" + hours).slice(-2);
     minutes = ("0" + minutes).slice(-2);
     seconds = ("0" + seconds).slice(-2);
-    // update
     document.getElementById('clock').textContent = hours + ":" + minutes + ":" + seconds;
   }
-  setInterval(updateClock, 1000); // update more
+  setInterval(updateClock, 1000); 
 </script>
 
 </body>
