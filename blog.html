@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,15 +88,28 @@
     // add posts here
   ];
 
-
 	// create and return post element
 	function createPostElement(postData) {
 	  const template = document.getElementById('blog-post-template').content.cloneNode(true);
 	  
-	  template.querySelector('.post-title').textContent = postData.title;
+	  const titleElement = template.querySelector('.post-title');
+	  titleElement.textContent = postData.title;
+	  
+	  // Convert title to a URL-friendly string and use it as a clickable link
+	  const urlFriendlyTitle = postData.title
+								.replace(/[^\w\s]/gi, '') // Remove punctuation
+								.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with hyphens and make lowercase
+	  const titleLink = document.createElement('a');
+	  titleLink.href = `blogs/${urlFriendlyTitle}.html`; // Use the URL-friendly title for the link
+	  titleLink.style.color = 'white'; // Ensure link is the same color as the text
+	  titleLink.style.textDecoration = 'none'; // Remove underline from link
+	  titleLink.appendChild(document.createTextNode(postData.title));
+	  titleElement.innerHTML = ''; // Clear existing title text
+	  titleElement.appendChild(titleLink); // Add link to the title element
+
 	  template.querySelector('.post-date').textContent = postData.date;
 	  template.querySelector('.post-content').textContent = postData.content;
-	  
+		  
 	  // check if theres a downloadlink
 	if (postData.downloadLink) {
 	  const downloadLink = document.createElement('a');
