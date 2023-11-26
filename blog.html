@@ -79,6 +79,13 @@
   // post array
   const posts = [
     {
+      title: "japanese jazz funk fusion.",
+      date: "november 26, 2023 @ 00:47",
+      content: "the greatest goddamn genre ever created.",
+      media: "", // put directory of media here
+      downloadLink: ""
+    },	
+   {
       title: "hitman internet blocking, automated!",
       date: "november 23, 2023 @ 15:52",
       content: "python script that automatically generates ahk and bat scripts",
@@ -95,17 +102,17 @@
 	  const titleElement = template.querySelector('.post-title');
 	  titleElement.textContent = postData.title;
 	  
-	  // Convert title to a URL-friendly string and use it as a clickable link
+	  // convert title to URL
 	  const urlFriendlyTitle = postData.title
-								.replace(/[^\w\s]/gi, '') // Remove punctuation
-								.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with hyphens and make lowercase
+								.replace(/[^\w\s]/gi, '') // remove punctuation
+								.replace(/\s+/g, '-').toLowerCase(); // replace spaces and make lowercase
 	  const titleLink = document.createElement('a');
-	  titleLink.href = `blogs/${urlFriendlyTitle}.html`; // Use the URL-friendly title for the link
-	  titleLink.style.color = 'white'; // Ensure link is the same color as the text
-	  titleLink.style.textDecoration = 'none'; // Remove underline from link
+	  titleLink.href = `blogs/${urlFriendlyTitle}.html`; // use the URL
+	  titleLink.style.color = 'white'; // link is the same color as the text
+	  titleLink.style.textDecoration = 'none'; // remove underline from link
 	  titleLink.appendChild(document.createTextNode(postData.title));
-	  titleElement.innerHTML = ''; // Clear existing title text
-	  titleElement.appendChild(titleLink); // Add link to the title element
+	  titleElement.innerHTML = ''; // clear existing title text
+	  titleElement.appendChild(titleLink); // add link to the title element
 
 	  template.querySelector('.post-date').textContent = postData.date;
 	  template.querySelector('.post-content').textContent = postData.content;
