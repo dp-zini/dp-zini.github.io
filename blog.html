@@ -29,15 +29,15 @@
   }
   .post {
     margin-bottom: 50px;
-    text-align: center;
+    text-align: left;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
   }
   .media-container img {
-    width: 100%; /* Make image responsive */
-    height: auto; /* Maintain aspect ratio */
-    margin-top: 20px; /* Add space above the image */
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
   }
   .button {
     display: inline-block;
@@ -66,73 +66,69 @@
     <p class="post-date">Date Here</p>
     <p class="post-content">Post content here...</p>
     <div class="media-container">
-      <!-- add ur media here -->
     </div>
   </article>
 </template>
 
 <div class="blog-container">
-  <!-- add blogs here with js -->
 </div>
 
 <script>
-  // post array
   const posts = [
     {
       title: "happy doom 30th anniversary.",
       date: "december 10, 2023 @ 00:00",
       content: "big ups to the only good FPS that released before '95",
-      media: "", // put directory of media here
+      media: "",
       downloadLink: ""
     },	
     {
       title: "japanese jazz funk fusion.",
       date: "november 26, 2023 @ 00:47",
       content: "the greatest goddamn genre ever created.",
-      media: "", // put directory of media here
+      media: "",
       downloadLink: ""
     },	
    {
       title: "hitman internet blocking, automated!",
       date: "november 23, 2023 @ 15:52",
       content: "python script that automatically generates ahk and bat scripts",
-      media: "", // put directory of media here
+      media: "",
       downloadLink: "media/scripts/hitman-gen.py"
     },	
-    // add posts here
   ];
 
-	// create and return post element
+
 	function createPostElement(postData) {
 	  const template = document.getElementById('blog-post-template').content.cloneNode(true);
 	  
 	  const titleElement = template.querySelector('.post-title');
 	  titleElement.textContent = postData.title;
 	  
-	  // convert title to URL
+
 	  const urlFriendlyTitle = postData.title
-								.replace(/[^\w\s]/gi, '') // remove punctuation
-								.replace(/\s+/g, '-').toLowerCase(); // replace spaces and make lowercase
+								.replace(/[^\w\s]/gi, '')
+								.replace(/\s+/g, '-').toLowerCase();
 	  const titleLink = document.createElement('a');
-	  titleLink.href = `blogs/${urlFriendlyTitle}.html`; // use the URL
-	  titleLink.style.color = 'white'; // link is the same color as the text
-	  titleLink.style.textDecoration = 'none'; // remove underline from link
+	  titleLink.href = `blogs/${urlFriendlyTitle}.html`;
+	  titleLink.style.color = 'white';
+	  titleLink.style.textDecoration = 'none';
 	  titleLink.appendChild(document.createTextNode(postData.title));
-	  titleElement.innerHTML = ''; // clear existing title text
-	  titleElement.appendChild(titleLink); // add link to the title element
+	  titleElement.innerHTML = '';
+	  titleElement.appendChild(titleLink);
 
 	  template.querySelector('.post-date').textContent = postData.date;
 	  template.querySelector('.post-content').textContent = postData.content;
 		  
-	  // check if theres a downloadlink
+
 	if (postData.downloadLink) {
 	  const downloadLink = document.createElement('a');
 	  downloadLink.href = postData.downloadLink;
 	  downloadLink.textContent = 'download the script here';
 	  downloadLink.setAttribute('download', '');
-	  downloadLink.style.textDecoration = 'underline'; // underline
-	  downloadLink.style.color = '#FFD700'; // color it
-	  template.querySelector('.post-content').appendChild(document.createElement('br')); // new line
+	  downloadLink.style.textDecoration = 'underline';
+	  downloadLink.style.color = '#FFD700';
+	  template.querySelector('.post-content').appendChild(document.createElement('br'));
 	  template.querySelector('.post-content').appendChild(downloadLink);
 	}
 	  
@@ -149,7 +145,6 @@
 	  return template;
 	}
 
-	// render posts.
 	function renderPosts() {
 	  const container = document.querySelector('.blog-container');
 	  posts.forEach(post => {
@@ -158,7 +153,6 @@
 	  });
 	}
 
-	// call renderPosts on page load
 	window.onload = renderPosts;
 </script>
 
