@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>chinggis khaani magtaal</title>
+<title>example</title>
 <style>
   body {
     background-color: black;
@@ -29,10 +29,10 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .media-container img {
-    width: 100%;
+  .media-container video {
+    width: 100%; /* Default width */
     height: auto;
-    margin-top: 20px;
+    margin-top: 0px;
   }
   .button {
     display: inline-block;
@@ -55,6 +55,15 @@
     color: #FFA500;
   }
 </style>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var videoScale = 0.5;
+    var video = document.querySelector('.media-container video');
+    if(video) {
+      video.style.width = (videoScale * 100) + '%';
+    }
+  });
+</script>
 </head>
 <body>
 
@@ -64,15 +73,17 @@
 
 <div class="post-container">
   <article>
-    <h2>mongolian throat singing.</h2>
-    <p>december 11, 2023 @ 21:00</p>
+    <h2>IT WORKS BITCHES AAAAAA.</h2>
+    <p>december 15, 2023 @ 14:06</p>
     <p>
-	i gotta say, these mf's can manipulate their vocal chords. <br>
-	gotta give props to the throat goat, batzorig vaanchig. <br>
-	only time i've ever heard the phrase "in praise of ghengis khan". <br>
-	for some reason most eurasians seemed to dislike him. <br>
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/p_5yt5IX38I" frameborder="0" allowfullscreen></iframe>
+	it works. video playback works.
 	</p>
+    <div class="media-container">
+      <video controls>
+        <source src="../media/videos/example.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
   </article>
 </div>
 

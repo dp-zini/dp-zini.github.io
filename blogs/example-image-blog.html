@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>chinggis khaani magtaal</title>
+<title>example</title>
 <style>
   body {
     background-color: black;
@@ -32,7 +32,7 @@
   .media-container img {
     width: 100%;
     height: auto;
-    margin-top: 20px;
+    margin-top: 0px;
   }
   .button {
     display: inline-block;
@@ -47,14 +47,16 @@
   .button:hover {
     background: #333;
   }
-  .download-link {
-    color: #FFD700;
-    text-decoration: underline;
-  }
-  .download-link:hover {
-    color: #FFA500;
-  }
 </style>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var imageScale = 0.50; 
+    var image = document.querySelector('.media-container img');
+    if(image) {
+      image.style.width = (imageScale * 100) + '%';
+    }
+  });
+</script>
 </head>
 <body>
 
@@ -64,15 +66,13 @@
 
 <div class="post-container">
   <article>
-    <h2>mongolian throat singing.</h2>
-    <p>december 11, 2023 @ 21:00</p>
+    <h2>it works.</h2>
     <p>
-	i gotta say, these mf's can manipulate their vocal chords. <br>
-	gotta give props to the throat goat, batzorig vaanchig. <br>
-	only time i've ever heard the phrase "in praise of ghengis khan". <br>
-	for some reason most eurasians seemed to dislike him. <br>
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/p_5yt5IX38I" frameborder="0" allowfullscreen></iframe>
+	example of an image.
 	</p>
+    <div class="media-container">
+      <img src="../media/images/example.jpg" alt="example">
+    </div>
   </article>
 </div>
 
