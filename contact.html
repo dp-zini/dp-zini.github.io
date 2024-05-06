@@ -4,12 +4,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>contact</title>
+<title>Contact</title>
 <style>
   body {
     background-color: black;
     color: white;
     font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+  }
+  h1 {
+  text-align: center
+  }
+  .contact-container {
+    padding-top: 60px;
+    padding-bottom: 20px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .header {
+    position: fixed;
+    top: 0;
+    width: 99.5%;
+    background: black;
+    padding: 0px 0;
+    z-index: 10;
     text-align: center;
   }
   .contact-info {
@@ -34,16 +53,16 @@
   }
 </style>
 </head>
+<div class="header">
+  <a href="index.html" class="button">back</a> 
+</div>
 <body>
-
 <div class="contact-container">
-    <p>
-	<h1>contact</h1>
-	if you have an inquiry, send an email<br>
+	<h1>Contact</h1>
+	<p>
+	If you have an inquiry, please send an email.<br>
 	<a href="mailto:zini@marouf.dev" class="email-link">zini@marouf.dev</a><br>
-	<a href="index.html" class="button">back</a>
 	</p>
 </div>
 
-</body>
 </html>
